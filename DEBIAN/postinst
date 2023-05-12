@@ -15,6 +15,16 @@ LONG_DATE=`date +%Y%m%d%H%M%S`
 D1_LOG_DIR=/var/log/dataone
 D1_LOG_FILE=dataone-zookeeper.install.log
 
+
+# zk_user also defined in /etc/init.d/zookeeper and needs to match this value
+ZK_USER=tomcat
+ZK_HOME=/var/lib/zookeeper
+ZK_CONF_HOME=/var/lib/zookeeper/conf
+ZK_CLIENT_PORT=2181
+ZK_SERVER_PORT_1=2888
+ZK_SERVER_PORT_2=3888
+ZK_SERVER_ID_FILE=/var/lib/zookeeper/data/myid
+
 function log() 
 {
 	#
@@ -23,21 +33,12 @@ function log()
 	#
     if [ ! -e ${D1_LOG_DIR} ]; then
         mkdir -p ${D1_LOG_DIR}
-        chown tomcat8:tomcat8 ${D1_LOG_DIR}
+        chown ${ZK_USER}:${ZK_USER} ${D1_LOG_DIR}
     fi
     now=$(date "+%Y-%m-%d %H:%M:%S %Z: ")
     echo -e "${now} postinst $@" >> ${D1_LOG_DIR}/${D1_LOG_FILE}
 }
 
-
-# zk_user also defined in /etc/init.d/zookeeper and needs to match this value
-ZK_USER=tomcat8
-ZK_HOME=/var/lib/zookeeper
-ZK_CONF_HOME=/var/lib/zookeeper/conf
-ZK_CLIENT_PORT=2181
-ZK_SERVER_PORT_1=2888
-ZK_SERVER_PORT_2=3888
-ZK_SERVER_ID_FILE=/var/lib/zookeeper/data/myid
 
 # Substitution tokens used in config files like zoo.cfg, start.ini,etc
 SERVER_1_TOKEN="D1_CN_IP_1"
