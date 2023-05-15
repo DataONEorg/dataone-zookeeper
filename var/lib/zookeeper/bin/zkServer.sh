@@ -56,6 +56,7 @@ if [ "x$SERVER_JVMFLAGS"  != "x" ]
 then
     JVMFLAGS="$SERVER_JVMFLAGS $JVMFLAGS"
 fi
+JVMFLAGS="$JVMFLAGS -Dlog4j2.formatMsgNoLookups=true"
 
 if [ "x$2" != "x" ]
 then
