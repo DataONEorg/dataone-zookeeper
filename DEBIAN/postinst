@@ -78,9 +78,6 @@ fi
 if ! (sed -i "s/$SERVER_2_TOKEN/$SERVER_2/g" ${ZK_CONF_HOME}/zoo.cfg >> ${D1_LOG_DIR}/${D1_LOG_FILE} 2>&1); then
 	log "Unable to modify ${ZK_CONF_HOME}/zoo.cfg for $SERVER_2_TOKEN $SERVER_2"
 fi
-if ! (sed -i "s/$SERVER_3_TOKEN/$SERVER_3/g" ${ZK_CONF_HOME}/zoo.cfg >> ${D1_LOG_DIR}/${D1_LOG_FILE} 2>&1); then
-	log "Unable to modify ${ZK_CONF_HOME}/zoo.cfg for $SERVER_3_TOKEN $SERVER_3"
-fi
 if ! (sed -i "s/$ZK_CLIENT_PORT_TOKEN/$ZK_CLIENT_PORT/g" ${ZK_CONF_HOME}/zoo.cfg >> ${D1_LOG_DIR}/${D1_LOG_FILE} 2>&1); then
 	log "Unable to modify ${ZK_CONF_HOME}/zoo.cfg for $ZK_CLIENT_PORT_TOKEN $ZK_CLIENT_PORT"
 fi
