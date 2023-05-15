@@ -93,6 +93,10 @@ fi
 
 
 ##### Create zookeeper myid file for server 1, etc
+if ( ! -d ${ZK_HOME}/data ); then
+   mkdir ${ZK_HOME}/data
+fi
+
 if [[ $LOCAL_IP == $SERVER_1 ]]; then
   echo "1" > $ZK_SERVER_ID_FILE
 elif [[ $LOCAL_IP == $SERVER_2 ]]; then
