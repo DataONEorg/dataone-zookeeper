@@ -93,7 +93,7 @@ fi
 
 
 ##### Create zookeeper myid file for server 1, etc
-if ( ! -d ${ZK_HOME}/data ); then
+if [ ! -d ${ZK_HOME}/data ]; then
    mkdir ${ZK_HOME}/data
 fi
 
